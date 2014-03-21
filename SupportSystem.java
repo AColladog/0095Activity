@@ -14,7 +14,7 @@
 public class SupportSystem
 {
     private InputReader reader;
-    private Responder responder;
+    private Responder responder; //hola
     
     /**
      * Creates a technical support system.
@@ -38,8 +38,9 @@ public class SupportSystem
 
         while(!finished) {
             String input = reader.getInput();
+            //el método de String toLowerCase, que pone todas las letras de la cadena en minúsculas
             //el método de String trim, eliminara todos los huecos existentes entre cadenas, " bye " --> "bye"
-            if(input.trim().startsWith("bye")) {
+            if(input.toLowerCase().trim().startsWith("bye")) {
                 finished = true;
             }
             else {
