@@ -38,8 +38,8 @@ public class SupportSystem
 
         while(!finished) {
             String input = reader.getInput();
-
-            if(input.startsWith("bye")) {
+            //el método de String trim, eliminara todos los huecos existentes entre cadenas, " bye " --> "bye"
+            if(input.trim().startsWith("bye")) {
                 finished = true;
             }
             else {
