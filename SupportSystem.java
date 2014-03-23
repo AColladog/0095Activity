@@ -40,7 +40,8 @@ public class SupportSystem
             String input = reader.getInput();
             //el método de String toLowerCase, que pone todas las letras de la cadena en minúsculas
             //el método de String trim, eliminara todos los huecos existentes entre cadenas, " bye " --> "bye"
-            if(input.toLowerCase().trim().startsWith("bye")) {
+            //equals, se utiliza para comparar cadenas
+            if(input.toLowerCase().trim().equals("bye")) {
                 finished = true;
             }
             else {
