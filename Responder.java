@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.HashMap;
 /**
  * The responder class represents a response generator object.
  * It is used to generate an automatic response to an input string.
@@ -8,31 +9,29 @@ import java.util.Random;
  * @version    0.1 (2011.07.31)
  */
 public class Responder
-{
-    private Random aleatorio;
-    private ArrayList<String> respuestas;
+{   
+    private HashMap<String, String> hm;
     /**
      * Construct a Responder - nothing to do
      */
     public Responder()
     {
-        aleatorio = new Random();
-        respuestas = new ArrayList<>();
-        respuestas.add("Me parece serio");
-        respuestas.add("Nos pondremos con ello");
-        respuestas.add("Reinicie el equipo");
-        respuestas.add("Problemas en el pago");
-        respuestas.add("Me gustaría poder ayudarle");
-        respuestas.add("No se enfade");
+        hm = new HashMap <>();
+        hm.put("averia","Nos pondremos a trabajar en su averia");
+        hm.put("conexion", "Arreglaremos esa conexion");
+        hm.put("error", "Reinicie el equipo, para ver si remite el error");
+        hm.put("factura", "Revisaremos su factura");
     }
-
+    
     /**
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse()
-    {
-        int numeroObtenido = aleatorio.nextInt(respuestas.size());
-        return respuestas.get(numeroObtenido);
+    public String generateResponse(String entrada)
+    {        
+        if(hm.containsKey(entrada) ){
+            return hm.get(entrada);    
+        }        
+        return "That sounds interesting. Tell me more...";
     }
 }
