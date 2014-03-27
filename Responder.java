@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.HashMap;
+import java.util.*;
 /**
  * The responder class represents a response generator object.
  * It is used to generate an automatic response to an input string.
@@ -28,10 +27,16 @@ public class Responder
      * @return   A string that should be displayed as the response
      */
     public String generateResponse(String entrada)
-    {        
-        if(hm.containsKey(entrada) ){
+    {   
+        for(String key: hm.keySet()){
+            if(entrada.contains(key)){                
+                return hm.get(key); 
+            }
+        }
+        
+       /* if(hm.containsKey(entrada) ){
             return hm.get(entrada);    
-        }        
+        }*/        
         return "That sounds interesting. Tell me more...";
     }
 }
