@@ -51,7 +51,8 @@ public class Responder
         }
         return respuesta;
         
-        
+      
+  
         /**
          * for(String key: hm.keySet()){
          *      if(entrada.contains(key)){ 
@@ -60,7 +61,5 @@ public class Responder
          * }
          *  return "That sounds interesting. Tell me more...";
          */
-
-        
     }
 }
