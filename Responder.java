@@ -1,5 +1,5 @@
 import java.util.HashMap;
-
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -40,14 +40,16 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse(String entrada)
+    public HashSet<String> generateResponse(HashSet<String> entrada)
     {
-        String respuesta = "";        
+        HashSet<String> respuesta = new HashSet<>(); 
+        String respuestaGenerada = "";
         if(hm.containsKey(entrada) ){
-            respuesta = hm.get(entrada);    
+            respuesta = entrada;    
         }else{
             int numeroObtenido = aleatorio.nextInt(respuestas.size());
-            respuesta = respuestas.get(numeroObtenido); 
+            respuestaGenerada = respuestas.get(numeroObtenido);
+            respuesta.add(respuestaGenerada);
         }
         return respuesta;
         

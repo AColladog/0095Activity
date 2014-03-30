@@ -1,3 +1,4 @@
+import java.util.HashSet;
 /**
  * This class implements a technical support system. It is the top
  * level class in this project. The support system communicates via
@@ -33,19 +34,18 @@ public class SupportSystem
     public void start()
     {
         boolean finished = false;
-
+        String entrada = "";
         printWelcome();
+        
+        
 
         while(!finished) {
-            String input = reader.getInput();
-            //el método de String toLowerCase, que pone todas las letras de la cadena en minúsculas
-            //el método de String trim, eliminara todos los huecos existentes entre cadenas, " bye " --> "bye"
-            //equals, se utiliza para comparar cadenas
-            if(input.toLowerCase().trim().equals("bye")) {
+            HashSet<String> input = reader.getInput();
+            if(input.contains("bye")) {
                 finished = true;
             }
             else {
-                String response = responder.generateResponse(input);
+                HashSet<String> response = responder.generateResponse(input);
                 System.out.println(response);
             }
         }
