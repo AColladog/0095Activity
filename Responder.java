@@ -12,7 +12,6 @@ import java.util.Random;
 public class Responder
 {   
     private HashMap<String, String> hm;
-
     private Random aleatorio;
     private ArrayList<String> respuestas;
     /**
@@ -40,28 +39,36 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public HashSet<String> generateResponse(HashSet<String> entrada)
-    {
-        HashSet<String> respuesta = new HashSet<>(); 
-        String respuestaGenerada = "";
-        if(hm.containsKey(entrada) ){
-            respuesta = entrada;    
-        }else{
-            int numeroObtenido = aleatorio.nextInt(respuestas.size());
-            respuestaGenerada = respuestas.get(numeroObtenido);
-            respuesta.add(respuestaGenerada);
-        }
-        return respuesta;
+    public HashSet<String> generateResponse(HashSet<String> entrada){
+        HashSet<String> respuestaDevuelta = new HashSet<>(); 
         
-      
-  
-        /**
-         * for(String key: hm.keySet()){
-         *      if(entrada.contains(key)){ 
-         *           return hm.get(key);
-         *      }
-         * }
-         *  return "That sounds interesting. Tell me more...";
-         */
+        for(String key: hm.keySet()){
+            if(entrada.contains(key)){
+                respuestaDevuelta.add(hm.get(key));
+            }
+        }
+        if(respuestaDevuelta.isEmpty()){
+                respuestaDevuelta.add( respuestas.get( aleatorio.nextInt(respuestas.size()) ) );
+            }
+        return respuestaDevuelta;
     }
+    
+
+    /** String respuesta = "";        
+     *  if(hm.containsKey(entrada) ){
+     *      respuesta = hm.get(entrada);    
+     *  }else{
+     *      int numeroObtenido = aleatorio.nextInt(respuestas.size());
+     *      respuesta = respuestas.get(numeroObtenido); 
+     *  }
+     *  return respuesta;
+
+     * for(String key: hm.keySet()){
+     *      if(entrada.contains(key)){ 
+     *           return hm.get(key);
+     *      }
+     * }
+     *  return "That sounds interesting. Tell me more...";
+     */
 }
+

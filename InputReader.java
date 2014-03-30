@@ -32,6 +32,7 @@ public class InputReader
     public HashSet<String> getInput()
     {
         System.out.print("> ");         // print prompt
+        hs.clear(); //Limpiamos el HashSet
         String inputLine = reader.nextLine();
         inputLine = inputLine.toLowerCase().trim(); //minúsculas y espacios no
         String[] entradas = inputLine.split(" ");

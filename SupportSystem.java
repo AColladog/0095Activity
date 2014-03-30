@@ -37,16 +37,13 @@ public class SupportSystem
         String entrada = "";
         printWelcome();
         
-        
-
         while(!finished) {
             HashSet<String> input = reader.getInput();
             if(input.contains("bye")) {
                 finished = true;
             }
             else {
-                HashSet<String> response = responder.generateResponse(input);
-                System.out.println(response);
+                System.out.println(responder.generateResponse(input));
             }
         }
         printGoodbye();
